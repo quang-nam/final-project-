@@ -15,6 +15,6 @@ route.get("/salary", getBuildingStaffsWithSalary);
 route.post("/add", createBuildingStaff);
 route.get("/getall", getAllBuidingStaff);
 route.get("/getall/:id", getBuidingStaffById);
-route.put("/staff/:id", updateBuildingStaff);
-route.delete("/staff/:id", deleteBuildingStaff);
+route.put("/update/:id", updateBuildingStaff);
+route.delete("/delete/:id", deleteBuildingStaff);
 export default route;
