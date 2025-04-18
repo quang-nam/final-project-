@@ -14,8 +14,8 @@
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/your-username/ten-repo.git
-cd ten-repo
+[git clone https://github.com/your-username/ten-repo.git](https://github.com/quang-nam/final-project-.git)
+cd final-project
 ```
 ### 2. cài đặt thư viện 
 npm install
