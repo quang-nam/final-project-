@@ -8,7 +8,7 @@
 - Express.js
 - MongoDB + Mongoose
 - Postman (test API)
-
+- Joi (validate data)
 ## 📥 Cài đặt và chạy ứng dụng
 
 ### 1. Clone repository
