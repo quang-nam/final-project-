@@ -1,4 +1,3 @@
-// controllers/data.controller.js
 import Company from "../models/Company.js";
 
 export const getCompanyWithCosts = async (req, res) => {
@@ -39,7 +38,7 @@ export const getCompanyWithCosts = async (req, res) => {
     result.sort((a, b) => b.tong_chi_phi - a.tong_chi_phi);
     res.json(result);
   } catch (err) {
-    console.error("❌ Error in getCompanyWithCosts:", err);
+    console.error("Error in getCompanyWithCosts:", err);
     res.status(500).json({ error: err.message });
   }
 };

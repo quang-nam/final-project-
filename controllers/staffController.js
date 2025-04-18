@@ -1,4 +1,3 @@
-// Liệt kê thông tin sinh viên cùng tên dịch vụ, tổng giá mỗi dịch vụ mà họ sử dụng trong khoảng thời gian từ ngày bắt đầu đến ngày kết thúc.
 import CompanyEmployee from "../models/CompanyEmployee.js";
 import BuildingStaff from "../models/BuidingStaff.js";
 import buildingStaffSchema from "../validation/staff.js";
@@ -51,7 +50,7 @@ export const getEmployeeAccessInfo = async (req, res) => {
 
 export const getBuildingStaffsWithSalary = async (req, res) => {
   try {
-    const { monthYear } = req.query; // Month-Year format: YYYY-MM
+    const { monthYear } = req.query;
     if (!monthYear) {
       return res.status(400).json({ error: "Missing month and year" });
     }
@@ -59,7 +58,7 @@ export const getBuildingStaffsWithSalary = async (req, res) => {
     // Truy vấn dữ liệu nhân viên tòa nhà
     const buildingStaffs = await BuildingStaff.aggregate([
       {
-        $unwind: "$dich_vu_phu_trach", // Mỗi nhân viên có thể có nhiều dịch vụ, chúng ta tách chúng ra
+        $unwind: "$dich_vu_phu_trach",
       },
       {
         $project: {
@@ -73,12 +72,12 @@ export const getBuildingStaffsWithSalary = async (req, res) => {
       },
       {
         $group: {
-          _id: "$ma_nhan_vien", // Gom nhóm theo mã nhân viên
+          _id: "$ma_nhan_vien", // nhóm theo mã nhân viên
           ten: { $first: "$ten" },
           vi_tri: { $first: "$vi_tri" },
           bac: { $first: "$bac" },
           dich_vu_phu_trach: { $addToSet: "$dich_vu_phu_trach" },
-          luong: { $avg: "$luong" }, // Lương trung bình cho mỗi nhân viên (nếu có nhiều dịch vụ)
+          luong: { $sum: "$luong" },
         },
       },
     ]);
