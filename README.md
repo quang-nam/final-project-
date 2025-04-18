@@ -8,15 +8,15 @@
 - Express.js
 - MongoDB + Mongoose
 - Postman (test API)
+- Joi (validate data)
 
 ## 📥 Cài đặt và chạy ứng dụng
 
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/your-username/final-project.git
+[git clone https://github.com/your-username/ten-repo.git](https://github.com/quang-nam/final-project-.git)
 cd final-project
-
 ```
 
 ### 2. cài đặt thư viện
